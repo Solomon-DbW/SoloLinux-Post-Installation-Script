@@ -41,7 +41,7 @@ git clone https://github.com/Solomon-DbW/SoloLinux
 mv SoloLinux/kitty ~/.config/
 
 # Install Hyprland and related packages
-sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager
+sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager nvim emacs
 
 # Enable services
 sudo systemctl enable NetworkManager
