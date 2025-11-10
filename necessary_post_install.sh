@@ -7,7 +7,7 @@ cd ~
 sudo pacman -S --noconfirm git
 
 # Install fonts
-sudo pacman -S --noconfirm ttf-jetbrains-mono noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
+sudo pacman -S --noconfirm ttf-jetbrains-mono jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
 fc-cache -fv
 
 # Starship prompt installation
@@ -50,7 +50,7 @@ sudo systemctl enable ly
 # Start hyprpaper
 hyprpaper &
 
-echo "Setup complete! Please log out and log back in for all changes to take effect."
+echo "Setup complete! Please log out and log back in for all changes to take effect. Run 'source ~/.zshrc to source zsh'"
 
 
 # #!/usr/bin/env bash
