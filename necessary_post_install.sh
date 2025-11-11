@@ -7,7 +7,7 @@ cd ~
 sudo pacman -S --noconfirm git
 
 # Install fonts
-sudo pacman -S --noconfirm ttf-jetbrains-mono jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
 fc-cache -fv
 
 # Starship prompt installation
