@@ -7,7 +7,7 @@ cd ~
 sudo pacman -S --noconfirm git
 
 # Install fonts
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq
 fc-cache -fv
 
 # Starship prompt installation
@@ -46,6 +46,10 @@ sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpu
 # Enable services
 sudo systemctl enable NetworkManager
 #sudo systemctl enable ly
+
+# Making scripts executable
+chmod +x ~/.config/hypr/scripts/*
+chmod +x ~/.config/waybar/switch_theme.sh && chmod +x ~/.config/waybar/scripts/*
 
 # Start hyprpaper
 hyprpaper &
