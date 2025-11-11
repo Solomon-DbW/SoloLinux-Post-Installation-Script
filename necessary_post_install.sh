@@ -35,6 +35,7 @@ yay -S --noconfirm brave-bin hyprshade
 # Get SoloLinux config files
 cd ~
 git clone https://github.com/Solomon-DbW/SoloLinux_GUI
+mv SoloLinux_GUI/zshrcfile ~/.zshrc
 mv SoloLinux_GUI/* ~/.config/
 
 git clone https://github.com/Solomon-DbW/SoloLinux
