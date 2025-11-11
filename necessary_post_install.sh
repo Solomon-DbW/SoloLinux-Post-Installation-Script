@@ -45,7 +45,7 @@ sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpu
 
 # Enable services
 sudo systemctl enable NetworkManager
-sudo systemctl enable ly
+#sudo systemctl enable ly
 
 # Start hyprpaper
 hyprpaper &
