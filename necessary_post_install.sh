@@ -54,6 +54,23 @@ chmod +x ~/.config/waybar/switch_theme.sh && chmod +x ~/.config/waybar/scripts/*
 # Start hyprpaper
 hyprpaper &
 
+# Customize /etc/os-release for SoloLinux branding
+sudo tee /etc/os-release > /dev/null <<'EOF'
+NAME="SoloLinux"
+PRETTY_NAME="SoloLinux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="0;38;2;102;0;102"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+EOF
+
+echo "/etc/os-release has been updated with SoloLinux branding"
+
 echo "Setup complete! Please log out and log back in for all changes to take effect. Run 'source ~/.zshrc to source zsh'"
 
 
