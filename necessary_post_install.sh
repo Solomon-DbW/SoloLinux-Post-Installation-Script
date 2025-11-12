@@ -72,7 +72,7 @@ EOF
 
 echo "/etc/os-release has been updated with SoloLinux branding"
 
-echo "Setup complete! Please log out and log back in for all changes to take effect. Run 'source ~/.zshrc to source zsh'"
+echo "Setup complete! Please log out and log back in for all changes to take effect. STart Hyprland instead of GNOME to experience the SoloLinux_GUI. Run 'source ~/.zshrc to source zsh'"
 
 
 # #!/usr/bin/env bash
