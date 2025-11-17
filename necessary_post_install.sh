@@ -44,7 +44,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin hyprshot-gui
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
@@ -93,6 +93,7 @@ EOF
 chsh -s $(which zsh)
 
 echo "Setup complete! Please log out and log back in."
+echo "Remember to install the ANSI shadow font file for figlet if you want to at 'https://github.com/xero/figlet-fonts/blob/master/ANSI%20Shadow.flf' and performing 'sudo mv $DOWNLOAD_DIR/ansishadow.flf /usr/share/figlet/fonts' in order to perform 'figlet -f ansishadow' 
 echo "Select Hyprland from the display manager to start the SoloLinux GUI."
 
 
