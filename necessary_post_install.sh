@@ -16,7 +16,7 @@ cd ~
 sudo pacman -S --noconfirm git base-devel
 
 # Install fonts
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq gnome gnome-tweaks
 fc-cache -fv
 
 # Starship prompt installation
@@ -26,6 +26,12 @@ echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
 sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide
+
+# Oh-my-zsh install
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Zsh-autossugestions plugin install
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Yay AUR helper install
 if ! command -v yay &> /dev/null; then
