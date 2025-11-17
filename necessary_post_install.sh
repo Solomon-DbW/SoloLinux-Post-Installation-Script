@@ -25,7 +25,7 @@ echo 'eval "$(starship init bash)"' >> ~/.bashrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
-sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide
+sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf
 
 # Oh-my-zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -44,7 +44,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
