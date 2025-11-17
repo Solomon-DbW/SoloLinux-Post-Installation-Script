@@ -43,6 +43,13 @@ mv SoloLinux/kitty ~/.config/
 
 # Install Hyprland and related packages
 sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager nvim emacs
+# Backup existing configs before moving
+if [ -d ~/.config/hypr ]; then
+    cp -r ~/.config/hypr ~/.config/hypr.backup.$(date +%Y%m%d_%H%M%S)
+fi
+
+# Then move new configs
+
 
 # Enable services
 sudo systemctl enable NetworkManager
