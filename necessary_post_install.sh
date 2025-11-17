@@ -53,12 +53,12 @@ backup_if_exists ~/.config
 # Get SoloLinux config files
 cd ~
 git clone https://github.com/Solomon-DbW/SoloLinux_GUI
-git clone https://github.com/Solomon-DbW/SoloLinux
+# git clone https://github.com/Solomon-DbW/SoloLinux
 
 # Move config files carefully
 cp SoloLinux_GUI/zshrcfile ~/.zshrc
 cp -r SoloLinux_GUI/* ~/.config/ 2>/dev/null || true
-cp -r SoloLinux/kitty ~/.config/
+# cp -r SoloLinux/kitty ~/.config/
 
 # Cleanup
 rm -rf SoloLinux_GUI SoloLinux
