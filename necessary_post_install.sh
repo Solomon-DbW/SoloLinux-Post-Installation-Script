@@ -25,7 +25,7 @@ echo 'eval "$(starship init bash)"' >> ~/.bashrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
-sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yazi
+sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf
 
 # Oh-my-zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -44,7 +44,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin hyprshot-gui
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
@@ -74,13 +74,13 @@ sudo systemctl enable ly
 chmod +x ~/.config/hypr/scripts/* 2>/dev/null || true
 chmod +x ~/.config/waybar/switch_theme.sh ~/.config/waybar/scripts/* 2>/dev/null || true
 
-# Customize /etc/os-release
+# Customize /etc/os-release for colour of #256897
 sudo tee /etc/os-release > /dev/null <<'EOF'
 NAME="SoloLinux"
 PRETTY_NAME="SoloLinux"
 ID=arch
 BUILD_ID=rolling
-ANSI_COLOR="0;38;2;102;0;102"
+ANSI_COLOR="0;38;2;37, 104, 151"
 HOME_URL="https://archlinux.org/"
 DOCUMENTATION_URL="https://wiki.archlinux.org/"
 SUPPORT_URL="https://bbs.archlinux.org/"
@@ -93,60 +93,4 @@ EOF
 chsh -s $(which zsh)
 
 echo "Setup complete! Please log out and log back in."
-echo "Remember to install the ANSI shadow font file for figlet if you want to at 'https://github.com/xero/figlet-fonts/blob/master/ANSI%20Shadow.flf' and performing 'sudo mv $DOWNLOAD_DIR/ansishadow.flf /usr/share/figlet/fonts' in order to perform 'figlet -f ansishadow' 
 echo "Select Hyprland from the display manager to start the SoloLinux GUI."
-
-
-# #!/usr/bin/env bash
-# set -e  # Exit on error
-#
-# cd ~
-#
-# # Install Git
-# sudo pacman -S git
-#
-# # Install Jetbrains Nerd Font Mono
-# sudo pacman -S ttf-jetbrains-mono
-#
-# # Install Noto fonts to prevent Brave browser font bug
-# sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu
-#
-# # Rebuild font cache
-# fc-cache -fv
-#
-# # Starship prompt installation
-# curl -sS https://starship.rs/install.sh | sh
-# echo 'eval "$(starship init bash)"' >> ~/.bashrc   
-# echo 'eval "$(starship init zsh)"' >> ~/.zshrc
-#
-# # Zsh plugins install
-# sudo pacman -S zsh-autosuggestions figlet exa zoxide
-#
-# # Zsh-autosuggestions plugininstall
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#
-# source .bashrc 
-#
-# # Zsh shell installation
-# sudo pacman -S zsh
-#
-# # Changing the default shell to zsh
-# chsh -s $(which zsh)
-#
-# source .zshrc
-#
-# # Yay AUR helper install
-# sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-#
-# # Brave web browser install via yay
-# yay -S brave-bin hyprshade
-#
-# # Getting SoloLinux config files
-# cd ~ && git clone https://github.com/Solomon-DbW/SoloLinux_GUI && mv SoloLinux_GUI/* ~/.config
-# cd ~ && git clone https://github.com/Solomon-DbW/SoloLinux && mv SoloLinux/kitty ~/.config
-#
-# # Installing useful packages
-# sudo pacman -S hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager
-#
-# # Starting hyprpaper for wallpaper to take effect
-# hyprpaper &
