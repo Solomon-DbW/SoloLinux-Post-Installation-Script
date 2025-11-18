@@ -81,12 +81,12 @@ NAME="SoloLinux"
 PRETTY_NAME="SoloLinux"
 ID=arch
 BUILD_ID=rolling
-ANSI_COLOR="0;38;2;37, 104, 151"
-HOME_URL="https://archlinux.org/"
-DOCUMENTATION_URL="https://wiki.archlinux.org/"
-SUPPORT_URL="https://bbs.archlinux.org/"
-BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
-PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+ANSI_COLOR="0;38;2;37;104;151"
+HOME_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
+DOCUMENTATION_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
+SUPPORT_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
+BUG_REPORT_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
+PRIVACY_POLICY_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
 LOGO=archlinux-logo
 EOF
 
