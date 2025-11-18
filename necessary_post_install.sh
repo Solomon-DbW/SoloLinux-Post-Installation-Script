@@ -79,7 +79,8 @@ chmod +x ~/.config/waybar/switch_theme.sh ~/.config/waybar/scripts/* 2>/dev/null
 sudo tee /etc/os-release > /dev/null <<'EOF'
 NAME="SoloLinux"
 PRETTY_NAME="SoloLinux"
-ID=arch
+ID=sololinux
+ID_LIKE=arch
 BUILD_ID=rolling
 ANSI_COLOR="0;38;2;37;104;151"
 HOME_URL="https://github.com/Solomon-DbW/SoloLinuxISO"
