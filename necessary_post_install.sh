@@ -10,6 +10,7 @@ backup_if_exists() {
     fi
 }
 
+# Ensure installation occurs from home dir
 cd ~
 
 # Install Git and required tools
