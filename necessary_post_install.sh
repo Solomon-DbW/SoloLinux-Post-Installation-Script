@@ -45,7 +45,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
