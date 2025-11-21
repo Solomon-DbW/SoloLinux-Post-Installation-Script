@@ -26,7 +26,7 @@ echo 'eval "$(starship init bash)"' >> ~/.bashrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
-sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc # yad is for cheatsheet
+sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst # dunst is for notifs and yad is for cheatsheet
 
 # Oh-my-zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
