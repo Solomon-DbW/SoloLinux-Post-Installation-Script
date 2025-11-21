@@ -69,7 +69,6 @@ sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpu
 
 # Enable services
 sudo systemctl enable NetworkManager
-sudo systemctl enable ly
 
 # Making scripts executable
 chmod +x ~/.config/hypr/scripts/* 2>/dev/null || true
