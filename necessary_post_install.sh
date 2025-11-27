@@ -45,7 +45,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper gdm-settings
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
@@ -59,16 +59,19 @@ git clone https://github.com/Solomon-DbW/SoloLinux_GUI
 # Move config files carefully
 cp SoloLinux_GUI/zshrcfile ~/.zshrc
 cp -r SoloLinux_GUI/* ~/.config/ 2>/dev/null || true
+sudo cp -r SoloLinux_GUI/sddm.conf.d /etc/
 # cp -r SoloLinux/kitty ~/.config/
 
 # Cleanup
 rm -rf SoloLinux_GUI SoloLinux
 
 # Install Hyprland and related packages
-sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager nvim emacs
+sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager nvim emacs sddm
 
 # Enable services
 sudo systemctl enable NetworkManager
+sudo systemctl enable sddm
+# sudo systemctl enable ly
 
 # Making scripts executable
 chmod +x ~/.config/hypr/scripts/* 2>/dev/null || true
