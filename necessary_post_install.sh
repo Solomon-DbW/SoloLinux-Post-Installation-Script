@@ -52,6 +52,9 @@ yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-them
 backup_if_exists ~/.zshrc
 backup_if_exists ~/.config
 
+# Ensure .config exists
+mkdir -p ~/.config
+
 # Get SoloLinux config files
 cd ~
 git clone https://github.com/Solomon-DbW/SoloLinux_GUI
