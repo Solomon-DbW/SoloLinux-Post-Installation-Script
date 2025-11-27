@@ -10,30 +10,47 @@ backup_if_exists() {
     fi
 }
 
+# Check for sudo access
+if ! sudo -v; then
+    echo "Error: This script requires sudo access"
+    exit 1
+fi
+
 # Ensure installation occurs from home dir
 cd ~
 
 # Install Git and required tools
 sudo pacman -S --noconfirm git base-devel
 
-# Install fonts
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq gnome gnome-tweaks
+# Install fonts (removed gnome and gnome-tweaks - too heavy for Hyprland setup)
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq
 fc-cache -fv
 
 # Starship prompt installation
 curl -sS https://starship.rs/install.sh | sh -s -- -y
-echo 'eval "$(starship init bash)"' >> ~/.bashrc   
-echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+# Only append if not already present
+grep -qxF 'eval "$(starship init bash)"' ~/.bashrc 2>/dev/null || echo 'eval "$(starship init bash)"' >> ~/.bashrc
+grep -qxF 'eval "$(starship init zsh)"' ~/.zshrc 2>/dev/null || echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
 sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst # dunst is for notifs and yad is for cheatsheet
 
-# Oh-my-zsh install
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# Clean up existing oh-my-zsh if present
+if [ -d ~/.oh-my-zsh ]; then
+    backup_if_exists ~/.oh-my-zsh
+    rm -rf ~/.oh-my-zsh
+fi
 
-# Zsh-autossugestions plugin install
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# Oh-my-zsh install (unattended mode)
+RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Clean up existing zsh-autosuggestions plugin if present
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+    rm -rf ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
+# Zsh-autosuggestions plugin install
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # Yay AUR helper install
 if ! command -v yay &> /dev/null; then
@@ -57,25 +74,33 @@ mkdir -p ~/.config
 
 # Get SoloLinux config files
 cd ~
+# Remove existing clone if present
+[ -d SoloLinux_GUI ] && rm -rf SoloLinux_GUI
 git clone https://github.com/Solomon-DbW/SoloLinux_GUI
-# git clone https://github.com/Solomon-DbW/SoloLinux
 
 # Move config files carefully
 cp SoloLinux_GUI/zshrcfile ~/.zshrc
-cp -r SoloLinux_GUI/* ~/.config/ 2>/dev/null || true
+
+# Copy config directories selectively (avoid copying .git and other unwanted files)
+for item in SoloLinux_GUI/*; do
+    basename_item=$(basename "$item")
+    # Skip zshrcfile, .git directory, and other non-config items
+    if [ "$basename_item" != "zshrcfile" ] && [ "$basename_item" != ".git" ] && [ "$basename_item" != "README.md" ]; then
+        cp -r "$item" ~/.config/ 2>/dev/null || true
+    fi
+done
+
 sudo cp -r SoloLinux_GUI/sddm.conf.d /etc/
-# cp -r SoloLinux/kitty ~/.config/
 
 # Cleanup
 rm -rf SoloLinux_GUI SoloLinux
 
 # Install Hyprland and related packages
-sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty ly virt-manager networkmanager nvim emacs sddm
+sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm
 
 # Enable services
 sudo systemctl enable NetworkManager
 sudo systemctl enable sddm
-# sudo systemctl enable ly
 
 # Making scripts executable
 chmod +x ~/.config/hypr/scripts/* 2>/dev/null || true
