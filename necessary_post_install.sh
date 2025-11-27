@@ -96,7 +96,7 @@ sudo cp -r SoloLinux_GUI/sddm.conf.d /etc/
 rm -rf SoloLinux_GUI SoloLinux
 
 # Install Hyprland and related packages
-sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm
+sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm uwsm xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent meson 
 
 # Enable services
 sudo systemctl enable NetworkManager
