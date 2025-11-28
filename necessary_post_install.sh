@@ -23,7 +23,7 @@ cd ~
 sudo pacman -S --noconfirm git base-devel
 
 # Install fonts (removed gnome and gnome-tweaks - too heavy for Hyprland setup)
-sudo pacman -S --noconfirm fontconfig ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu jq
 fc-cache -fv
 
 # Starship prompt installation
@@ -33,7 +33,7 @@ grep -qxF 'eval "$(starship init bash)"' ~/.bashrc 2>/dev/null || echo 'eval "$(
 grep -qxF 'eval "$(starship init zsh)"' ~/.zshrc 2>/dev/null || echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
-sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst ripgrep wireplumber pulseaudio pavucontrol   # dunst is for notifs, yad is for cheatsheet and ripgrep is for Space+gs search function in Neovim
+sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst ripgrep # dunst is for notifs, yad is for cheatsheet and ripgrep is for Space+gs search function in Neovim
 
 # Clean up existing oh-my-zsh if present
 if [ -d ~/.oh-my-zsh ]; then
@@ -63,7 +63,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git git-credential-manager hyprshot-gui
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
@@ -96,7 +96,7 @@ sudo cp -r SoloLinux_GUI/sddm.conf.d /etc/
 rm -rf SoloLinux_GUI SoloLinux
 
 # Install Hyprland and related packages
-sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm uwsm xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent meson 
+sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm uwsm xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent meson wireplumber pulseaudio pavucontrol archiso qemu yazi virtualbox
 
 # Enable services
 sudo systemctl enable NetworkManager
