@@ -81,6 +81,17 @@ git clone https://github.com/Solomon-DbW/SoloLinux_GUI
 # Move config files carefully
 cp SoloLinux_GUI/zshrcfile ~/.zshrc
 
+# Xmonad config
+cp -r SoloLinux_GUI/.xmonad ~/
+cp -r SoloLinux_GUI/xmobar ~/.config
+
+# Other WMs configs
+cp -r SoloLinux_GUI/i3 ~/.config
+cp -r SoloLinux_GUI/bspwm ~/.config
+cp -r SoloLinux_GUI/qtile ~/.config
+cp -r SoloLinux_GUI/sxhkd ~/.config
+
+
 # Copy config directories selectively (avoid copying .git and other unwanted files)
 for item in SoloLinux_GUI/*; do
     basename_item=$(basename "$item")
@@ -90,13 +101,21 @@ for item in SoloLinux_GUI/*; do
     fi
 done
 
+# SDDM config
 sudo cp -r SoloLinux_GUI/sddm.conf.d /etc/
+
+sudo cp -r SoloLinux_GUI/etc-sddm.conf.d /etc/sddm.conf.d
+
+sudo cp -r SoloLinux_GUI/usr-share-sddm-themes-sololinux /usr/share/sddm/themes/sololinux
 
 # Cleanup
 rm -rf SoloLinux_GUI SoloLinux
 
 # Install Hyprland and related packages
 sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpufetch brightnessctl kitty virt-manager networkmanager nvim emacs sddm uwsm xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent meson wireplumber pulseaudio pavucontrol archiso qemu yazi virtualbox
+
+# Install other window managers
+sudo pacman -S i3-wm qtile notion bspwm sxhkd && yay -S dwm --noconfirm
 
 # Enable services
 sudo systemctl enable NetworkManager
