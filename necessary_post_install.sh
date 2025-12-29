@@ -52,6 +52,12 @@ fi
 # Zsh-autosuggestions plugin install
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+# Helix editor install
+sudo pacman -S helix
+
+# Fresh editor install
+curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
+
 # Yay AUR helper install
 if ! command -v yay &> /dev/null; then
     cd ~
