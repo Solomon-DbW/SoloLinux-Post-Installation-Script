@@ -53,7 +53,10 @@ fi
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # Helix editor install
-sudo pacman -S helix
+sudo pacman -S --noconfirm helix
+
+# Conky install
+sudo pacman -S --noconfirm conky
 
 # Fresh editor install
 curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
@@ -69,7 +72,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git git-credential-manager hyprshot-gui
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
