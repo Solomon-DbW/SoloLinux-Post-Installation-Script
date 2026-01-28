@@ -71,8 +71,11 @@ if ! command -v yay &> /dev/null; then
     rm -rf yay  # Cleanup
 fi
 
-# AUR packages
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git
+# AUR packages & Snap
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper snapd sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git
+
+# Install Logisim Evolution via snap
+sudo snap install logisim-evolution
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
