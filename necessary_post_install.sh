@@ -33,7 +33,7 @@ grep -qxF 'eval "$(starship init bash)"' ~/.bashrc 2>/dev/null || echo 'eval "$(
 grep -qxF 'eval "$(starship init zsh)"' ~/.zshrc 2>/dev/null || echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Zsh and plugins
-sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst ripgrep # dunst is for notifs, yad is for cheatsheet and ripgrep is for Space+gs search function in Neovim
+sudo pacman -S --noconfirm zsh zsh-autosuggestions figlet exa zoxide fzf yad ghc dunst ripgrep maven # dunst is for notifs, yad is for cheatsheet and ripgrep is for Space+gs search function in Neovim
 
 # Clean up existing oh-my-zsh if present
 if [ -d ~/.oh-my-zsh ]; then
@@ -72,7 +72,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # AUR packages & Snap
-yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper snapd sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git
+yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper snapd sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git jdtls java-language-server 
 
 # Install Logisim Evolution via snap
 sudo snap install logisim-evolution
