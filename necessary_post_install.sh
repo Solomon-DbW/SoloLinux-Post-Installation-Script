@@ -75,7 +75,7 @@ fi
 yay -S --noconfirm brave-bin hyprshade visual-studio-code-bin waypaper snapd sddm-theme-mountain-git git-credential-manager hyprshot-gui mission-center-git jdtls java-language-server 
 
 # Install Logisim Evolution via snap
-sudo snap install logisim-evolution
+#sudo snap install logisim-evolution
 
 # Backup existing configs
 backup_if_exists ~/.zshrc
@@ -95,13 +95,13 @@ cp SoloLinux_GUI/zshrcfile ~/.zshrc
 
 # Xmonad config
 cp -r SoloLinux_GUI/.xmonad ~/
-cp -r SoloLinux_GUI/xmobar ~/.config
+#cp -r SoloLinux_GUI/xmobar ~/.config
 
 # Other WMs configs
 cp -r SoloLinux_GUI/i3 ~/.config
-cp -r SoloLinux_GUI/bspwm ~/.config
+#cp -r SoloLinux_GUI/bspwm ~/.config
 cp -r SoloLinux_GUI/qtile ~/.config
-cp -r SoloLinux_GUI/sxhkd ~/.config
+#cp -r SoloLinux_GUI/sxhkd ~/.config
 
 
 # Copy config directories selectively (avoid copying .git and other unwanted files)
