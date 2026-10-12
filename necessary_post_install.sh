@@ -130,8 +130,8 @@ sudo pacman -S --noconfirm hyprland hyprpaper hyprlock waybar rofi fastfetch cpu
 sudo pacman -S i3-wm qtile notion bspwm sxhkd && yay -S dwm --noconfirm
 
 # Enable services
-sudo systemctl enable NetworkManager
-sudo systemctl enable sddm
+# sudo systemctl enable NetworkManager
+# sudo systemctl enable sddm
 
 # Making scripts executable
 chmod +x ~/.config/hypr/scripts/* 2>/dev/null || true
